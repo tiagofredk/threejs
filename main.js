@@ -32,8 +32,9 @@ pointLight.position.set(20, 20, 20);
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight, pointLight);
 
-const spaceTexture = new THREE.TextureLoader().load('./img/space.jpg');
-scene.background = spaceTexture;
+// background scene
+// const spaceTexture = new THREE.TextureLoader().load('./img/space.jpg');
+// scene.background = spaceTexture;
 
 const googleTexture = new THREE.TextureLoader().load('./img/google.jpg');
 
@@ -44,19 +45,32 @@ const google = new THREE.Mesh(
 google.position.set(10, 20, -10);
 scene.add(google);
 
-const lighHelper = new THREE.PointLightHelper(pointLight);
-const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(gridHelper, lighHelper);
+// scene helpers
+// const lighHelper = new THREE.PointLightHelper(pointLight);
+// const gridHelper = new THREE.GridHelper(200, 50);
+// scene.add(gridHelper, lighHelper);
 
+// const controls = new OrbitControls(camera, renderer.domElement);
 
-const controls = new OrbitControls(camera, renderer.domElement);
+function moveCamera() {
+  const t = document.body.getBoundingClientRect().top;
+  torus.rotation.x += 0.01;
+  torus.rotation.y += 0.01;
+  torus.rotation.z += 0.01;
+
+  camera.position.z = t * -0.1;
+  camera.position.y = t * -0.0002;
+  camera.position.x = t * -0.0002;
+}
+document.body.onscroll = moveCamera;
+moveCamera();
 
 function animate() {
   requestAnimationFrame(animate);
   // torus.rotation.x += 0.01;
   // torus.rotation.y += 0.01;
   
-  controls.update();
+  // controls.update();
 
   renderer.render(scene, camera);
 }

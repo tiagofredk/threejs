@@ -1,3 +1,13 @@
+main {
+  color: aliceblue;
+  flex: auto;
+  /* background-color: aliceblue; */
+  width: 60%;
+  height: 100vh;
+}
+p {
+  color: aliceblue;
+}
 canvas {
   position: fixed;
   top: 0;
