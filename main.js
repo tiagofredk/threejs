@@ -17,8 +17,8 @@ camera.position.z = 30;
 renderer.render(scene, camera);
 
 // background scene
-const spaceTexture = new THREE.TextureLoader().load('./img/space.jpg');
-scene.background = spaceTexture;
+// const spaceTexture = new THREE.TextureLoader().load('./img/space.jpg');
+// scene.background = spaceTexture;
 
 // create the elements of the scene
 const geometry = new THREE.DodecahedronGeometry(10, 3, 16, 100);
